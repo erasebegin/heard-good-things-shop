@@ -18,6 +18,9 @@ const config: Config = {
           100: "#FBFCF1",
           200: "#FDD298",
         },
+        yellow: {
+          200: "#F7E179",
+        },
         blue: {
           100: "#EDFFFF",
           200: "#96D4E5",
@@ -26,8 +29,12 @@ const config: Config = {
           200: "#418A35",
         },
         pink: {
+          100: "#ffece6",
           200: "#F19E94",
         },
+      },
+      boxShadow: {
+        pink: "10px 10px 0px 0px #F19E94",
       },
     },
   },
