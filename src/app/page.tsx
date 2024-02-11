@@ -17,8 +17,8 @@ export default async function Home() {
           src="/hgt_header.svg"
           alt="Heard Good Things logo"
           className="mb-20 md:mb-32"
-          width={372}
-          height={372}
+          width={300}
+          height={300}
           priority
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-8 px-3">

@@ -35,6 +35,7 @@ const config: Config = {
       },
       boxShadow: {
         pink: "10px 10px 0px 0px #F19E94",
+        orange: "-5px -5px 0px 0px #FDD298",
       },
     },
   },

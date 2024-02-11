@@ -36,15 +36,17 @@ const page = async ({ params }: { params: { slug: string } }) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center pt-10 md:pt-30 px-5 sm:px-5 max-w-[939px] m-auto">
-      <Image
-        src="/hgt_header.svg"
-        alt="Heard Good Things logo"
-        className="mb-20 md:mb-32"
-        width={372}
-        height={372}
-        priority
-      />
+    <div className="relative flex flex-col items-center justify-center pt-10 md:pt-30 px-5 sm:px-5 max-w-[1200px] m-auto">
+      <Link href="/">
+        <Image
+          src="/hgt_header.svg"
+          alt="Heard Good Things logo"
+          className="mb-20 md:mb-32"
+          width={300}
+          height={300}
+          priority
+        />
+      </Link>
 
       <div className="w-full flex justify-between pb-6 sm:pb-12">
         <Link href="/">
@@ -70,24 +72,24 @@ const page = async ({ params }: { params: { slug: string } }) => {
       </div>
 
       <div
-        className="bg-orange-100 rounded-3xl p-5 border-2 flex flex-col sm:flex-row gap-10"
+        className="bg-orange-100 rounded-3xl p-3 sm:p-10 lg:p-20 border-2 flex flex-col sm:flex-row gap-10"
         style={{
           boxShadow: `-5px 5px 0px ${colorMap[color]}`,
           borderColor: colorMap[color],
         }}
       >
-        <div className=" rounded-3xl overflow-hidden">
+        <div className="basis-1/2 rounded-3xl overflow-hidden shadow-orange">
           <Image
             src={images[0].url}
-            height={488}
-            width={488}
+            height={300}
+            width={300}
             alt={title}
-            className="w-[488px] h-[488px] object-cover"
+            className="object-cover w-[105%] h-[105%]"
           />
         </div>
-        <div className="flex flex-col gap-3">
-          <h1 className="text-4xl">{title}</h1>
-          <p>£{price} GBP</p>
+        <div className="basis-1/2 flex flex-col gap-3">
+          <h1 className="text-2xl sm:text-4xl">{title}</h1>
+          <p className="text-lg sm:text-xl">£{price} GBP</p>
           <p
             className="font-light mb-3"
             dangerouslySetInnerHTML={{ __html: description?.html }}
