@@ -39,7 +39,7 @@ const ShopCard = (props: Props) => {
         />
         <p className="font-light text-base mb-2">{title}</p>
         <div className="flex items-center justify-between">
-          <p className="text-xl font-bold">£{price}</p>
+          <p className="text-xl font-bold">£{price} GBP</p>
         </div>
       </div>
     </Link>
