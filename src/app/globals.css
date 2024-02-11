@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  /* SNIPCART VARIABLES */
+
+  /* BUTTON */
+  --color-buttonPrimary: #418a35;
+  --borderColor-buttonPrimary: #fdd298;
+  --bgColor-buttonPrimary: #fdd298;
+
+  /* LINK */
+  --color-link: #418a35;
+
+  /* GLOBAL */
+  --bgColor-default: #FBFCF1;
+  --bgColor-modal: #EDFFFF;
+}
