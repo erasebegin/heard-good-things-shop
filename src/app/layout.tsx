@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
-import localFont from "next/font/local";
 import "./globals.css";
 import { fetchGeneralContent } from "@/services/hygraph";
 import Script from "next/script";
+import { moonblossom } from "./fonts";
 
 const inter = Noto_Sans({ subsets: ["latin"] });
-
-export const moonblossom = localFont({
-  src: "../../public/moonblossom.otf",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Heard Good Things",

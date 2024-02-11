@@ -2,7 +2,7 @@ import { fetchShopItem, fetchShopItems } from "@/services/hygraph";
 import { ShopItem } from "@/types/hygraph";
 import Image from "next/image";
 import Link from "next/link";
-import { moonblossom } from "../layout";
+import { moonblossom } from "../fonts";
 
 export async function generateStaticParams() {
   const res = await fetchShopItems();
