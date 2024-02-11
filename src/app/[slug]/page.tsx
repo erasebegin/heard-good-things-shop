@@ -2,6 +2,7 @@ import { fetchShopItem, fetchShopItems } from "@/services/hygraph";
 import { ShopItem } from "@/types/hygraph";
 import Image from "next/image";
 import Link from "next/link";
+import { moonblossom } from "../layout";
 
 export async function generateStaticParams() {
   const res = await fetchShopItems();
@@ -35,7 +36,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center pt-10 md:pt-30 px-3 sm:px-5 max-w-[939px] m-auto">
+    <div className="relative flex flex-col items-center justify-center pt-10 md:pt-30 px-5 sm:px-5 max-w-[939px] m-auto">
       <Image
         src="/hgt_header.svg"
         alt="Heard Good Things logo"
@@ -45,10 +46,10 @@ const page = async ({ params }: { params: { slug: string } }) => {
         priority
       />
 
-      <div className="w-full flex pb-12">
+      <div className="w-full flex justify-between pb-6 sm:pb-12">
         <Link href="/">
           <button
-            className="bg-orange-100 rounded-lg p-3 text-green-200 border-2"
+            className={`bg-orange-100 rounded-lg p-3 text-green-200 border-2 ${moonblossom.className}`}
             style={{
               boxShadow: `-5px 5px 0px ${colorMap[color]}`,
               borderColor: colorMap[color],
@@ -57,22 +58,33 @@ const page = async ({ params }: { params: { slug: string } }) => {
             BACK
           </button>
         </Link>
+        <button
+          className={`snipcart-checkout bg-orange-100 rounded-lg p-3 text-green-200 border-2 ${moonblossom.className}`}
+          style={{
+            boxShadow: `-5px 5px 0px ${colorMap[color]}`,
+            borderColor: colorMap[color],
+          }}
+        >
+          CHECKOUT
+        </button>
       </div>
 
       <div
-        className="bg-orange-100 rounded-3xl p-5 border-2 flex gap-10"
+        className="bg-orange-100 rounded-3xl p-5 border-2 flex flex-col sm:flex-row gap-10"
         style={{
           boxShadow: `-5px 5px 0px ${colorMap[color]}`,
           borderColor: colorMap[color],
         }}
       >
-        <Image
-          src={images[0].url}
-          height={488}
-          width={488}
-          alt={title}
-          className="w-[488px] h-[488px]"
-        />
+        <div className=" rounded-3xl overflow-hidden">
+          <Image
+            src={images[0].url}
+            height={488}
+            width={488}
+            alt={title}
+            className="w-[488px] h-[488px] object-cover"
+          />
+        </div>
         <div className="flex flex-col gap-3">
           <h1 className="text-4xl">{title}</h1>
           <p>£{price} GBP</p>
@@ -80,16 +92,25 @@ const page = async ({ params }: { params: { slug: string } }) => {
             className="font-light mb-3"
             dangerouslySetInnerHTML={{ __html: description?.html }}
           />
-          <button className="bg-yellow-200 p-3 rounded-lg">BUY IT NOW</button>
           <button
-            className="snipcart-add-item"
+            className={`snipcart-add-item text-green-200 ${moonblossom.className}`}
             data-item-id={slug}
             data-item-price={price}
             data-item-description={description.text}
             data-item-image={images[0].url}
             data-item-name={title}
           >
-            Add to cart
+            ADD TO BASKET
+          </button>
+          <button
+            className={`snipcart-add-item bg-yellow-200 p-3 rounded-lg ${moonblossom.className}`}
+            data-item-id={slug}
+            data-item-price={price}
+            data-item-description={description.text}
+            data-item-image={images[0].url}
+            data-item-name={title}
+          >
+            BUY IT NOW
           </button>
         </div>
       </div>

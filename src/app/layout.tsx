@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { fetchGeneralContent } from "@/services/hygraph";
 import Script from "next/script";
 
 const inter = Noto_Sans({ subsets: ["latin"] });
+
+export const moonblossom = localFont({
+  src: "../../public/moonblossom.otf",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Heard Good Things",
@@ -17,9 +23,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const { data, errors } = await fetchGeneralContent();
-  console.log({ data, errors });
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <head>
         <link
           rel="stylesheet"
@@ -31,19 +36,25 @@ export default async function RootLayout({
           strategy="beforeInteractive"
         />
       </head>
-      <body className={`${inter.className} bg-blue-100`}>
+      <body className="bg-blue-100">
         <div
           hidden
           id="snipcart"
           data-api-key={process.env.NEXT_PUBLIC_SNIPCART_API_KEY}
         />
-        <header>
+        {/* <header>
           <button className="snipcart-checkout">CHECKOUT</button>
-        </header>
+        </header> */}
         {children}
-        <footer className="pb-20 pt-32 px-5">
-          <p className="text-2xl text-center">{data?.general?.footerText}</p>
-        </footer>
+        {errors ? (
+          <p className={moonblossom.className}>Could not load data...</p>
+        ) : (
+          <footer className="pb-20 pt-32 px-5">
+            <p className={`text-2xl text-center ${moonblossom.className}`}>
+              {data?.general?.footerText}
+            </p>
+          </footer>
+        )}
       </body>
     </html>
   );
