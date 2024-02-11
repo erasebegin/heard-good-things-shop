@@ -28,7 +28,7 @@ export default async function RootLayout({
 
         <Script
           src="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
       </head>
       <body className="bg-blue-100">
