@@ -12,6 +12,7 @@ export type ShopItem = {
   price: number;
   title: string;
   slug: string;
+  digitalFileGuid: string;
   color: "orange" | "blue" | "green" | "pink";
   images: Array<{
     id: string;

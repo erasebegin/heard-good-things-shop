@@ -21,7 +21,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     throw new Error("Couldn't load page content");
   }
 
-  const { title, description, images, color, price, slug } =
+  const { title, description, images, color, price, slug, digitalFileGuid } =
     data.shopItem ?? {};
 
   interface ColorMap {
@@ -101,6 +101,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
             data-item-description={description.text}
             data-item-image={images[0].url}
             data-item-name={title}
+            data-item-file-guid={digitalFileGuid}
           >
             ADD TO BASKET
           </button>
@@ -111,6 +112,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
             data-item-description={description.text}
             data-item-image={images[0].url}
             data-item-name={title}
+            data-item-file-guid={digitalFileGuid}
           >
             BUY IT NOW
           </button>

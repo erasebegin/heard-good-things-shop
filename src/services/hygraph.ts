@@ -56,6 +56,7 @@ export async function fetchShopItem(slug: string) {
             title
             color
             slug
+            digitalFileGuid
             description {
               html
               text
