@@ -72,19 +72,19 @@ const page = async ({ params }: { params: { slug: string } }) => {
       </div>
 
       <div
-        className="bg-orange-100 rounded-3xl p-3 sm:p-10 lg:p-20 border-2 flex flex-col sm:flex-row gap-10"
+        className="bg-orange-100 rounded-3xl p-3 sm:p-10 lg:p-20 flex flex-col sm:flex-row gap-10"
         style={{
           boxShadow: `-5px 5px 0px ${colorMap[color]}`,
           borderColor: colorMap[color],
         }}
       >
-        <div className="basis-1/2 rounded-3xl overflow-hidden">
+        <div className="basis-1/2">
           <Image
             src={images[0].url}
-            height={300}
-            width={300}
+            height={400}
+            width={400}
             alt={title}
-            className="object-cover"
+            className="object-cover rounded-3xl"
           />
         </div>
         <div className="basis-1/2 flex flex-col gap-3">

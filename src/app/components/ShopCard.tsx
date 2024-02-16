@@ -31,7 +31,7 @@ const ShopCard = (props: Props) => {
         }}
       >
         <Image
-          className="w-291 h-291 object-cover mx-auto mb-6"
+          className="w-291 h-291 object-cover mx-auto mb-6 rounded-2xl"
           src={images[0].url}
           alt="Mindfood Sample Pack"
           width={291}
