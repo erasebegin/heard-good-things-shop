@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 html {
+  font-family: 'Noto Sans', sans-serif;
+
   /* SNIPCART VARIABLES */
 
   /* BUTTON */
@@ -16,4 +20,9 @@ html {
   /* GLOBAL */
   --bgColor-default: #FBFCF1;
   --bgColor-modal: #EDFFFF;
+
+}
+
+.snipcart__font--secondary {
+  font-family: 'Noto Sans', sans-serif;
 }

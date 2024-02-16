@@ -78,13 +78,13 @@ const page = async ({ params }: { params: { slug: string } }) => {
           borderColor: colorMap[color],
         }}
       >
-        <div className="basis-1/2 rounded-3xl overflow-hidden shadow-orange">
+        <div className="basis-1/2 rounded-3xl overflow-hidden">
           <Image
             src={images[0].url}
             height={300}
             width={300}
             alt={title}
-            className="object-cover w-[105%] h-[105%]"
+            className="object-cover"
           />
         </div>
         <div className="basis-1/2 flex flex-col gap-3">

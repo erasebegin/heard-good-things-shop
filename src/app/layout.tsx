@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { fetchGeneralContent } from "@/services/hygraph";
-import Script from "next/script";
 import { moonblossom } from "./fonts";
-
-const inter = Noto_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Heard Good Things",
@@ -19,7 +15,7 @@ export default async function RootLayout({
 }>) {
   const { data, errors } = await fetchGeneralContent();
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en">
       <head>
         <link
           rel="stylesheet"
