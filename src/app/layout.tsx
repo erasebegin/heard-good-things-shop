@@ -45,7 +45,7 @@ export default async function RootLayout({
               const shopMain = document.querySelector(".shop-main");
               console.log({shopMain})
               if (shopMain) {
-                shopMain.style.border = "1px solid blue";
+                shopMain.style.border = "1px solid blue"; 
               }
             });
           `,
