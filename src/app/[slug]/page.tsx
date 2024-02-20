@@ -64,7 +64,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       </div>
 
       <div
-        className="bg-orange-100 rounded-3xl p-3 sm:p-10 lg:p-20 flex flex-col sm:flex-row gap-10 border-2"
+        className="shop-main bg-orange-100 rounded-3xl p-3 sm:p-10 lg:p-20 flex flex-col sm:flex-row gap-10 border-2"
         style={{
           boxShadow: `-5px 5px 0px ${colorMap[color]}`,
           borderColor: colorMap[color],

@@ -14,6 +14,7 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center">
       <div className="relative flex flex-col place-items-center pt-10 md:pt-30">
         <PageHeader />
+        <p id="myCustomElement"></p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-8 px-3">
           {data?.shopItems?.map((shopItem: ShopItem) => (
             <ShopCard key={shopItem.id} data={shopItem} />
