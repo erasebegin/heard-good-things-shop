@@ -3,6 +3,7 @@ import { ShopItem } from "@/types/hygraph";
 import Image from "next/image";
 import Link from "next/link";
 import { moonblossom } from "../fonts";
+import PageHeader from "../components/PageHeader";
 
 export async function generateStaticParams() {
   const res = await fetchShopItems();
@@ -37,16 +38,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="relative flex flex-col items-center justify-center pt-10 md:pt-30 px-5 sm:px-5 max-w-[1200px] m-auto">
-      <Link href="/">
-        <Image
-          src="/hgt_header.svg"
-          alt="Heard Good Things logo"
-          className="mb-20 md:mb-32"
-          width={300}
-          height={300}
-          priority
-        />
-      </Link>
+      <PageHeader />
 
       <div className="w-full flex justify-between pb-6 sm:pb-12">
         <Link href="/">
