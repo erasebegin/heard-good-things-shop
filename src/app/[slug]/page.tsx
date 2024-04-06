@@ -22,7 +22,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     throw new Error("Couldn't load page content");
   }
 
-  const { title, description, images, color, price, slug, digitalFileGuid } =
+  const { title, description, images, color, price, slug } =
     data.shopItem ?? {};
 
   interface ColorMap {
@@ -52,15 +52,17 @@ const page = async ({ params }: { params: { slug: string } }) => {
             BACK
           </button>
         </Link>
-        <button
-          className={`snipcart-checkout bg-orange-100 rounded-lg p-3 text-green-200 border-2 ${moonblossom.className}`}
-          style={{
-            boxShadow: `-5px 5px 0px ${colorMap[color]}`,
-            borderColor: colorMap[color],
-          }}
-        >
-          CHECKOUT
-        </button>
+        <Link href={`/${slug}/checkout`}>
+          <button
+            className={`bg-orange-100 rounded-lg p-3 text-green-200 border-2 ${moonblossom.className}`}
+            style={{
+              boxShadow: `-5px 5px 0px ${colorMap[color]}`,
+              borderColor: colorMap[color],
+            }}
+          >
+            CHECKOUT
+          </button>
+        </Link>
       </div>
 
       <div
@@ -83,31 +85,17 @@ const page = async ({ params }: { params: { slug: string } }) => {
           <h1 className="text-2xl sm:text-4xl">{title}</h1>
           <p className="text-lg sm:text-xl">£{price} GBP</p>
           <p
+            suppressHydrationWarning
             className="font-light mb-3"
             dangerouslySetInnerHTML={{ __html: description?.html }}
           />
-          <button
-            className={`snipcart-add-item text-green-200 ${moonblossom.className}`}
-            data-item-id={slug}
-            data-item-price={price}
-            data-item-description={description.text}
-            data-item-image={images[0].url}
-            data-item-name={title}
-            data-item-file-guid={digitalFileGuid}
-          >
-            ADD TO BASKET
-          </button>
-          <button
-            className={`snipcart-add-item bg-yellow-200 p-3 rounded-lg ${moonblossom.className}`}
-            data-item-id={slug}
-            data-item-price={price}
-            data-item-description={description.text}
-            data-item-image={images[0].url}
-            data-item-name={title}
-            data-item-file-guid={digitalFileGuid}
-          >
-            BUY IT NOW
-          </button>
+          <Link href={`/${slug}/checkout`}>
+            <button
+              className={`bg-yellow-200 p-3 rounded-lg ${moonblossom.className}`}
+            >
+              BUY IT NOW
+            </button>
+          </Link>
         </div>
       </div>
     </div>

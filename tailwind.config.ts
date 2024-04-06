@@ -34,7 +34,10 @@ const config: Config = {
         },
       },
       boxShadow: {
+        pinkSmall: "5px 5px 0px 0px #F19E94",
         pink: "10px 10px 0px 0px #F19E94",
+        green: "10px 10px 0px 0px #418A35",
+        greenSmall: "5px 5px 0px 0px #418A35",
         orange: "-5px -5px 0px 0px #FDD298",
       },
     },
