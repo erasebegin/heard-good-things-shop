@@ -47,20 +47,20 @@ const StripeCheckout: React.FC<Props> = ({ title, price }) => {
 
   return (
     <>
-      <div className="flex flex-col mb-10 items-center w-full justify-center p-10 rounded-xl bg-orange-100 shadow-pink border-pink-200 border-2">
+      <div className="mb-10 flex w-full flex-col items-center justify-center rounded-xl border-2 border-pink-200 bg-orange-100 p-10 shadow-pink">
         <div className="w-full">
-          <h1 className="text-6xl text-gray-700 text-center pb-10">CHECKOUT</h1>
-          <h2 className="text-xl text-center">You are purchasing:</h2>
-          <h2 className="text-2xl text-center text-green-200 pb-5">{title}</h2>
-          <h3 className="text-gray-700 text-2xl text-center pb-10">
+          <h1 className="pb-10 text-center text-6xl text-gray-700">CHECKOUT</h1>
+          <h2 className="text-center text-xl">You are purchasing:</h2>
+          <h2 className="pb-5 text-center text-2xl text-green-200">{title}</h2>
+          <h3 className="pb-10 text-center text-2xl text-gray-700">
             for <span className="text-5xl">£{price}</span>
           </h3>
         </div>
-        <PaymentElement onChange={(something) => console.log({ something })} />
+        <PaymentElement />
         {errorMessage && <p className="font-">{errorMessage}</p>}
       </div>
       <button
-        className="bg-orange-100 rounded-lg p-3 text-green-200 text-xl border-2 border-pink-200 shadow-pinkSmall"
+        className="rounded-lg border-2 border-pink-200 bg-orange-100 p-3 text-xl text-green-200 shadow-pinkSmall"
         type="button"
         onClick={handleSubmit}
       >
