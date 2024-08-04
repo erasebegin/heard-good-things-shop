@@ -9,8 +9,6 @@ const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY as string);
 const Checkout = async ({ params }: { params: { slug: string } }) => {
   const { data, errors } = await fetchShopItem(params.slug);
 
-  console.log({ stripePromise, env: process.env.STRIPE_PUBLISHABLE_KEY });
-
   const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
   const paymentIntent = await stripe.paymentIntents.create({
@@ -21,6 +19,12 @@ const Checkout = async ({ params }: { params: { slug: string } }) => {
     },
   });
 
+  console.log({
+    stripePromise,
+    pubKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    privKey: process.env.STRIPE_PRIVATE_KEY,
+    paymentIntent,
+  });
   const options = {
     clientSecret: paymentIntent.client_secret as string,
   };

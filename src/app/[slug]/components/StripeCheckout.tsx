@@ -1,4 +1,5 @@
 "use client";
+
 import {
   PaymentElement,
   useElements,
@@ -25,7 +26,7 @@ const StripeCheckout: React.FC<Props> = ({ title, price }) => {
       return;
     }
 
-    const { error } = await stripe.confirmPayment({
+    const { error }: { error: any } = await stripe.confirmPayment({
       //`Elements` instance that was used to create the Payment Element
       elements,
       confirmParams: {
@@ -37,7 +38,7 @@ const StripeCheckout: React.FC<Props> = ({ title, price }) => {
       // This point will only be reached if there is an immediate error when
       // confirming the payment. Show error to your customer (for example, payment
       // details incomplete)
-      setErrorMessage(error.message);
+      setErrorMessage(error?.message);
     } else {
       // Your customer will be redirected to your `return_url`. For some payment
       // methods like iDEAL, your customer will be redirected to an intermediate
