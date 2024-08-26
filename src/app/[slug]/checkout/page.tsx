@@ -1,10 +1,7 @@
 import PageHeader from "@/app/components/PageHeader";
 import { fetchShopItem } from "@/services/hygraph";
 import { moonblossom } from "@/app/fonts";
-import { loadStripe } from "@stripe/stripe-js";
 import StripeWrapper from "../components/StripeWrapper";
-
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY as string);
 
 const Checkout = async ({ params }: { params: { slug: string } }) => {
   const { data, errors } = await fetchShopItem(params.slug);
@@ -19,12 +16,6 @@ const Checkout = async ({ params }: { params: { slug: string } }) => {
     },
   });
 
-  console.log({
-    stripePromise,
-    pubKey: process.env.STRIPE_PUBLISHABLE_KEY,
-    privKey: process.env.STRIPE_PRIVATE_KEY,
-    paymentIntent,
-  });
   const options = {
     clientSecret: paymentIntent.client_secret as string,
   };
@@ -43,7 +34,6 @@ const Checkout = async ({ params }: { params: { slug: string } }) => {
         <StripeWrapper
           title={data.shopItem.title}
           price={data.shopItem.price}
-          stripePromise={stripePromise}
           options={options}
         />
       </div>
